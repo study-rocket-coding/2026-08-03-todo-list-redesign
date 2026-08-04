@@ -16,11 +16,11 @@ function AddTodoForm ({ onAdd, isAdding }) {
   }
 
   return (
-    <form 
+    <form
       onSubmit={ handleSubmit(onSubmit) }
-      className="relative flex w-full mb-4 shadow-[0_0_15px_0_rgba(0,0,0,0.15)]">
+      className="flex gap-2.5">
       <input
-        className="relative w-full h-[47px] pl-4 text-base bg-white rounded-[10px]"
+        className="flex-1 h-12 rounded-lg border border-gray-300 px-4 text-base bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-gray-400"
         type="text"
         placeholder="請輸入待辦事項"
         { ...register("content") }
@@ -28,7 +28,7 @@ function AddTodoForm ({ onAdd, isAdding }) {
       <button
         type="submit"
         disabled={ isAdding || !content?.trim() }
-        className="absolute top-1 right-1 block w-10 h-[39px] p-[10px] text-center text-[20px] leading-none text-white no-underline bg-[#333] rounded-[10px] disabled:bg-gray-300"
+        className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-2xl font-normal leading-none cursor-pointer transition-colors disabled:opacity-45 disabled:cursor-not-allowed disabled:hover:bg-emerald-600"
       >
         +
       </button>

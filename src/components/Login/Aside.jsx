@@ -1,19 +1,44 @@
-import asideLg from "../../assets/login/aside-lg.png"
-import asideSm from "../../assets/login/aside-sm.png"
+function Aside({ variant = "login" }) {
+  const isLogin = variant === "login";
 
-function Aside () {
   return (
-    <div className="flex flex-col justify-center items-center w-full md:w-[386px]">
-      <img
-        className="mb-4"
-        src={ asideSm }
-        alt="Online todolist"
-      />
-      <img
-        className="hidden md:block"
-        src={ asideLg }
-        alt="workImg"
-      />
+    <div className="flex-1 min-w-[280px] bg-emerald-600 text-white p-10 md:p-12 flex flex-col justify-center gap-7">
+      <div className="flex items-center gap-3">
+        <div className="w-10 h-10 rounded-lg bg-white text-emerald-600 flex items-center justify-center text-xl font-bold">
+          ✓
+        </div>
+        <span className="font-bold tracking-wider text-sm">ONLINE TODO LIST</span>
+      </div>
+
+      {isLogin && (
+        <div className="flex flex-col gap-2.5">
+          <div className="flex items-center gap-3">
+            <div className="w-[22px] h-[22px] rounded flex-shrink-0 bg-emerald-400" />
+            <div className="h-2.5 rounded-full bg-emerald-500 w-[70%]" />
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-[22px] h-[22px] rounded flex-shrink-0 bg-white text-emerald-600 flex items-center justify-center text-xs font-bold">
+              ✓
+            </div>
+            <div className="h-2.5 rounded-full bg-emerald-400 w-[88%]" />
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="w-[22px] h-[22px] rounded flex-shrink-0 bg-emerald-400" />
+            <div className="h-2.5 rounded-full bg-emerald-500 w-[55%]" />
+          </div>
+        </div>
+      )}
+
+      <p className="text-xl font-bold leading-relaxed m-0">
+        {isLogin ? (
+          <>一件一件完成，<br />每一步都算數。</>
+        ) : (
+          <>開始建立習慣，<br />從第一個待辦開始。</>
+        )}
+      </p>
+      <p className="text-sm leading-relaxed m-0 text-emerald-100">
+        {isLogin ? "今天的清單，今天就開始。" : "加入後即可同步管理你的每日清單。"}
+      </p>
     </div>
   )
 }

@@ -9,7 +9,7 @@ import { useTodos } from "../../hooks/useTodos"
 function Todolist () {
   const [filter, setFilter] = useState("all");
 
-  const { todos, isAdding, errorLog, addTodo, removeTodo, toggleTodo, editTodo, clearCompleted } = useTodos();
+  const { todos, isAdding, isLoading, errorLog, addTodo, removeTodo, toggleTodo, editTodo, clearCompleted } = useTodos();
 
   const filteredTodos = todos.filter((todo) => {
     switch (filter) {
@@ -23,54 +23,113 @@ function Todolist () {
   })
 
   const completedTodos = todos.filter((todo) => todo.status);
+  const total = todos.length;
+  const completedCount = completedTodos.length;
+  const pct = total ? Math.round((completedCount / total) * 100) : 0;
+
+  let motivationTitle, motivationSubtext;
+  if (total === 0) {
+    motivationTitle = "開始你的第一步";
+    motivationSubtext = "新增待辦事項，讓每一天都有進度。";
+  } else if (pct === 100) {
+    motivationTitle = "太棒了，全部完成！";
+    motivationSubtext = "今天的清單已經清空，休息一下吧。";
+  } else if (pct === 0) {
+    motivationTitle = "今天的待辦都在等你";
+    motivationSubtext = "先完成一項，感受一下推進的感覺。";
+  } else {
+    motivationTitle = "持續推進中";
+    motivationSubtext = `已完成 ${completedCount} 項，還差 ${total - completedCount} 項就達標。`;
+  }
+
+  const showEmptyState = !isLoading && total === 0 && errorLog.length === 0;
 
   return (
-    <section
-      id="todoListPage"
-      className="bg-[linear-gradient(175deg,#FFD370_100%,#fff_0%)] md:bg-[linear-gradient(175deg,#FFD370_60%,#fff_40%)]"
-    >
+    <section id="todoListPage" className="min-h-screen bg-gray-50">
       <Nav />
-      <div className="h-screen mx-auto px-8 py-4">
-        <div className="w-full mx-auto md:w-[500px]">
-          <AddTodoForm onAdd={ addTodo } isAdding={ isAdding }/>
-          <div className="bg-white rounded-[10px] shadow-[0_0_15px_0_rgba(0,0,0,0.15)]">
-            <ul className="flex justify-evenly">
-              {
-                filterTabs.map((filterTab) => {
-                  return (
-                    <li className="w-full" key={ filterTab.dataTab } >
-                      <FilterTodoBtn 
-                        {...filterTab}
-                        isSelected={filter === filterTab.dataTab}
-                        onFilter={ setFilter }/>
-                    </li>
-                )})
-              }
-            </ul>
-            <div className="pt-[23px] pl-6 pr-[17px] pb-8">
-              <ul className="mb-2 overflow-y-auto max-h-[400px]">
-                { errorLog && 
-                  <p className="text-red-700"> { errorLog } </p>
-                }
+      <div className="max-w-[640px] mx-auto px-5 py-7 pb-16 flex flex-col gap-[18px]">
+
+        { total > 0 && (
+          <div className="bg-emerald-50 rounded-2xl px-[22px] py-[18px]">
+            <div className="flex justify-between items-center">
+              <span className="font-bold text-[15px] text-emerald-700">{ motivationTitle }</span>
+              <span className="font-mono font-semibold text-sm text-emerald-700">{ completedCount }/{ total }</span>
+            </div>
+            <div className="h-2 rounded-full bg-emerald-200 mt-3 overflow-hidden">
+              <div
+                className="h-full rounded-full bg-emerald-600 transition-all duration-300 ease-out"
+                style={{ width: `${pct}%` }}
+              />
+            </div>
+            <p className="mt-2.5 mb-0 text-[13px] text-emerald-800">{ motivationSubtext }</p>
+          </div>
+        )}
+
+        <AddTodoForm onAdd={ addTodo } isAdding={ isAdding }/>
+
+        <div className="bg-white rounded-2xl shadow-[0_2px_14px_0_rgba(0,0,0,0.07)] overflow-hidden">
+          <div className="flex">
+            {
+              filterTabs.map((filterTab) => (
+                <FilterTodoBtn
+                  key={ filterTab.dataTab }
+                  {...filterTab}
+                  isSelected={filter === filterTab.dataTab}
+                  onFilter={ setFilter }/>
+              ))
+            }
+          </div>
+          <div className="px-5 pt-5 pb-6">
+
+            { isLoading && (
+              <div className="flex flex-col gap-2.5 mb-1">
+                <div className="h-11 rounded-lg bg-gray-100 animate-pulse" />
+                <div className="h-11 rounded-lg bg-gray-100 animate-pulse" />
+                <div className="h-11 rounded-lg bg-gray-100 animate-pulse" />
+              </div>
+            )}
+
+            { errorLog.length > 0 && (
+              <div className="flex flex-col gap-2 mb-3.5">
+                { errorLog.map((msg, i) => (
+                  <div key={i} className="flex items-start gap-2 bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm">
+                    <span className="font-bold">!</span>
+                    <span>{ msg }</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            { showEmptyState && (
+              <div className="text-center py-8 px-3 text-gray-500">
+                <p className="text-[15px] font-bold text-gray-900 m-0 mb-1.5">尚無待辦事項</p>
+                <p className="text-[13px] m-0">新增第一筆待辦，開始今天的進度。</p>
+              </div>
+            )}
+
+            { !isLoading && filteredTodos.length > 0 && (
+              <ul className="list-none m-0 mb-1 p-0 max-h-[420px] overflow-y-auto flex flex-col">
                 {
-                  filteredTodos.map((todo) => 
+                  filteredTodos.map((todo) =>
                   <TodoListItem
-                    key={todo.id} 
+                    key={todo.id}
                     {...todo}
                     onDelete={ removeTodo }
                     onToggle={ toggleTodo }
-                    onEdit={ editTodo } 
+                    onEdit={ editTodo }
                   />
                 )}
               </ul>
-              <div className="flex justify-between">
-                <p className="text-sm text-[#333]"> {completedTodos.length} 個已完成項目</p>
-                <button
-                  type="button"
-                  className="text-sm text-[#9F9A91] cursor-pointer" onClick={ () => clearCompleted() }>
-                  清除已完成項目
-                </button>
-              </div>
+            )}
+
+            <div className="flex justify-between items-center mt-2.5">
+              <p className="text-[13px] text-gray-500 m-0"> {completedCount} 個已完成項目</p>
+              <button
+                type="button"
+                className="text-[13px] text-gray-500 bg-none border-none cursor-pointer underline hover:text-red-600 transition-colors"
+                onClick={ () => clearCompleted() }>
+                清除已完成項目
+              </button>
             </div>
           </div>
         </div>

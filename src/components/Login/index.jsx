@@ -3,9 +3,9 @@ import SignIn from "./SignIn";
 
 function Login() {
   return (
-    <section id="loginPage" className="bg-[#FFD370]">
-      <div className="mx-auto h-screen flex flex-col items-center justify-start w-full px-[31px] py-12 sm:flex-row sm:justify-between sm:w-[800px] sm:px-8 sm:py-[87px]">
-        <Aside />
+    <section id="loginPage" className="min-h-screen flex items-center justify-center bg-emerald-50 p-6">
+      <div className="flex flex-wrap w-full max-w-[820px] bg-white rounded-2xl overflow-hidden shadow-xl">
+        <Aside variant="login" />
         <SignIn />
       </div>
     </section>
