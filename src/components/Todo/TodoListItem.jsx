@@ -26,7 +26,7 @@ function TodoListItem({ id, status, content, onDelete, onToggle, onEdit }) {
       }
       <button
         onClick={() => setIsEditing(!isEditing)}
-        className="text-13 font-normal text-gray-600 bg-transparent border border-gray-300 rounded-lg py-1.5 px-2.5 cursor-pointer whitespace-nowrap flex-shrink-0 hover:bg-brand-100 hover:text-brand-800 hover:border-brand-800 transition-colors"
+        className="text-caption font-normal text-gray-600 bg-transparent border border-gray-300 rounded-lg py-1.5 px-2.5 cursor-pointer whitespace-nowrap flex-shrink-0 hover:bg-brand-100 hover:text-brand-800 hover:border-brand-800 transition-colors"
       >
         編輯
       </button>

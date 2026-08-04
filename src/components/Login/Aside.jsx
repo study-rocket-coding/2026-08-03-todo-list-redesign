@@ -4,7 +4,7 @@ function Aside({ variant = "login" }) {
   return (
     <div className="flex-1 min-w-[280px] bg-brand-800 text-white p-10 md:p-12 flex flex-col justify-center gap-7">
       <div className="flex items-center gap-3">
-        <div className="w-10 h-10 rounded-lg bg-white text-brand-800 flex items-center justify-center text-22 font-bold">
+        <div className="w-10 h-10 rounded-lg bg-white text-brand-800 flex items-center justify-center text-display font-bold">
           ✓
         </div>
         <span className="font-bold tracking-wider text-sm">ONLINE TODO LIST</span>
@@ -29,7 +29,7 @@ function Aside({ variant = "login" }) {
         </div>
       )}
 
-      <p className="text-22 font-bold leading-relaxed m-0">
+      <p className="text-display font-bold leading-relaxed m-0">
         {isLogin ? (
           <>一件一件完成，<br />每一步都算數。</>
         ) : (
