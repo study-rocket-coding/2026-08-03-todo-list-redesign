@@ -11,7 +11,7 @@ const Input = ({ label, name, register, required, rules = {}, errors, ...props }
       <label className="text-base font-normal mt-2.5 mb-1.5 text-gray-900" htmlFor={name}>{label}</label>
       <input
         id={name}
-        className="w-full box-border font-normal bg-white text-gray-900 border border-gray-300 rounded-lg h-11 px-3.5 text-base mb-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-gray-400"
+        className="w-full box-border font-normal bg-white text-gray-900 border border-gray-300 rounded-lg h-11 px-3.5 text-base mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-brand-800 placeholder:text-gray-400"
         {...props}
         {...register(name, { required, ...rules })}/>
       {fieldError && (
@@ -57,7 +57,7 @@ function Form() {
         }
         <button
           type="submit"
-          className="h-[50px] rounded-full bg-emerald-600 hover:bg-emerald-700 text-white border-none self-center my-5 font-bold cursor-pointer text-center text-base px-10 transition-colors"
+          className="h-[50px] rounded-full bg-brand-800 hover:bg-brand-900 text-white border-none self-center my-5 font-bold cursor-pointer text-center text-base px-10 transition-colors"
         >
           註冊帳號
         </button>
@@ -66,7 +66,7 @@ function Form() {
         }
         <Link
           to="/"
-          className="block text-gray-900 font-bold no-underline text-center text-sm hover:text-emerald-700 transition-colors"
+          className="block text-gray-900 font-bold no-underline text-center text-sm hover:text-brand-900 transition-colors"
         >
           登入
         </Link>

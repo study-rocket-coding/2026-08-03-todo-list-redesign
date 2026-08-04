@@ -15,7 +15,7 @@ function TodoListItem({ id, status, content, onDelete, onToggle, onEdit }) {
   return (
     <li data-id={id} className="flex items-center gap-3.5 py-3.5 px-2 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
       <input
-        className="w-5 h-5 flex-shrink-0 accent-emerald-600 cursor-pointer"
+        className="w-5 h-5 flex-shrink-0 accent-brand-800 cursor-pointer"
         type="checkbox"
         checked={status}
         onChange={() => onToggle(id) }
@@ -26,7 +26,7 @@ function TodoListItem({ id, status, content, onDelete, onToggle, onEdit }) {
       }
       <button
         onClick={() => setIsEditing(!isEditing)}
-        className="text-[13px] font-normal text-gray-600 bg-transparent border border-gray-300 rounded-lg py-1.5 px-2.5 cursor-pointer whitespace-nowrap flex-shrink-0 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300 transition-colors"
+        className="text-[13px] font-normal text-gray-600 bg-transparent border border-gray-300 rounded-lg py-1.5 px-2.5 cursor-pointer whitespace-nowrap flex-shrink-0 hover:bg-brand-100 hover:text-brand-800 hover:border-brand-800 transition-colors"
       >
         編輯
       </button>

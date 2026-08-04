@@ -50,18 +50,18 @@ function Todolist () {
       <div className="max-w-[640px] mx-auto px-5 py-7 pb-16 flex flex-col gap-[18px]">
 
         { total > 0 && (
-          <div className="bg-emerald-50 rounded-2xl px-[22px] py-[18px]">
+          <div className="bg-brand-100 rounded-2xl px-[22px] py-[18px]">
             <div className="flex justify-between items-center">
-              <span className="font-bold text-[15px] text-emerald-700">{ motivationTitle }</span>
-              <span className="font-mono font-semibold text-sm text-emerald-700">{ completedCount }/{ total }</span>
+              <span className="font-bold text-[15px] text-brand-800">{ motivationTitle }</span>
+              <span className="font-mono font-semibold text-sm text-brand-800">{ completedCount }/{ total }</span>
             </div>
-            <div className="h-2 rounded-full bg-emerald-200 mt-3 overflow-hidden">
+            <div className="h-2 rounded-full bg-brand-300 mt-3 overflow-hidden">
               <div
-                className="h-full rounded-full bg-emerald-600 transition-all duration-300 ease-out"
+                className="h-full rounded-full bg-brand-800 transition-all duration-300 ease-out"
                 style={{ width: `${pct}%` }}
               />
             </div>
-            <p className="mt-2.5 mb-0 text-[13px] text-emerald-800">{ motivationSubtext }</p>
+            <p className="mt-2.5 mb-0 text-[13px] text-brand-700">{ motivationSubtext }</p>
           </div>
         )}
 
