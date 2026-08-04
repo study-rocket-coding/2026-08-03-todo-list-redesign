@@ -9,7 +9,7 @@ const SignInInput = ({ label, name, register, required, rules = {}, errors, isFi
     <label className={`text-base font-normal ${isFirst ? "" : "mt-2.5"} mb-1.5 text-gray-900`} htmlFor={name}>{label}</label>
     <input
       id={name}
-      className="w-full box-border font-normal bg-white text-gray-900 border border-gray-300 rounded-lg h-11 px-3.5 text-base mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-brand-800 placeholder:text-gray-400"
+      className="w-full box-border font-normal bg-white text-gray-900 border border-gray-200 rounded-lg h-11 px-3.5 text-base mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-brand-800 placeholder:text-gray-400"
       {...props}
       {...register(name, { required, ...rules })}/>
     {errors[name] && (
