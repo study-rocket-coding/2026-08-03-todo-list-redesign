@@ -11,4 +11,11 @@
   --color-brand-800: oklch(36% 0.12 160);
   --color-brand-900: oklch(29% 0.11 160);
   --color-brand-1000: oklch(19% 0.08 160);
+
+  --text-13: 13px;
+  --text-15: 15px;
+  --text-22: 22px;
+
+  --spacing-18: 18px;
+  --spacing-22: 22px;
 }

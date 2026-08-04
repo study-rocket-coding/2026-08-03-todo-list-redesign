@@ -47,7 +47,7 @@ function Form() {
   return (
     <div className="flex-1 min-w-[300px] p-10 md:p-12 flex flex-col justify-center">
       <form className="flex flex-col mt-6" onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="font-bold mb-6 text-2xl text-gray-900">
+        <h2 className="font-semibold mb-6 text-2xl text-gray-900">
           { subTitle }
         </h2>
         {

@@ -47,12 +47,12 @@ function Todolist () {
   return (
     <section id="todoListPage" className="min-h-screen bg-gray-50">
       <Nav />
-      <div className="max-w-[640px] mx-auto px-5 py-7 pb-16 flex flex-col gap-[18px]">
+      <div className="max-w-[640px] mx-auto px-5 py-7 pb-16 flex flex-col gap-18">
 
         { total > 0 && (
-          <div className="bg-brand-100 rounded-2xl px-[22px] py-[18px]">
+          <div className="bg-brand-100 rounded-2xl px-22 py-18">
             <div className="flex justify-between items-center">
-              <span className="font-bold text-[15px] text-brand-800">{ motivationTitle }</span>
+              <span className="font-bold text-15 text-brand-800">{ motivationTitle }</span>
               <span className="font-mono font-semibold text-sm text-brand-800">{ completedCount }/{ total }</span>
             </div>
             <div className="h-2 rounded-full bg-brand-300 mt-3 overflow-hidden">
@@ -61,7 +61,7 @@ function Todolist () {
                 style={{ width: `${pct}%` }}
               />
             </div>
-            <p className="mt-2.5 mb-0 text-[13px] text-brand-700">{ motivationSubtext }</p>
+            <p className="mt-2.5 mb-0 text-13 text-brand-700">{ motivationSubtext }</p>
           </div>
         )}
 
@@ -102,8 +102,8 @@ function Todolist () {
 
             { showEmptyState && (
               <div className="text-center py-8 px-3 text-gray-500">
-                <p className="text-[15px] font-bold text-gray-900 m-0 mb-1.5">尚無待辦事項</p>
-                <p className="text-[13px] m-0">新增第一筆待辦，開始今天的進度。</p>
+                <p className="text-15 font-bold text-gray-900 m-0 mb-1.5">尚無待辦事項</p>
+                <p className="text-13 m-0">新增第一筆待辦，開始今天的進度。</p>
               </div>
             )}
 
@@ -123,10 +123,10 @@ function Todolist () {
             )}
 
             <div className="flex justify-between items-center mt-2.5">
-              <p className="text-[13px] text-gray-500 m-0"> {completedCount} 個已完成項目</p>
+              <p className="text-13 text-gray-500 m-0"> {completedCount} 個已完成項目</p>
               <button
                 type="button"
-                className="text-[13px] text-gray-500 bg-none border-none cursor-pointer underline hover:text-red-600 transition-colors"
+                className="text-13 text-gray-500 bg-none border-none cursor-pointer underline hover:text-red-600 transition-colors"
                 onClick={ () => clearCompleted() }>
                 清除已完成項目
               </button>
