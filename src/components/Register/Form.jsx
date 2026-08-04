@@ -4,11 +4,11 @@ import { Link, useNavigate } from 'react-router'
 import { fields, subTitle } from './data'
 import { signUp } from '../../apis'
 
-const Input = ({ label, name, register, required, rules = {}, errors, ...props }) => {
+const Input = ({ label, name, register, required, rules = {}, errors, isFirst, ...props }) => {
   const fieldError = errors[name];
   return (
     <>
-      <label className="text-base font-normal mt-2.5 mb-1.5 text-gray-900" htmlFor={name}>{label}</label>
+      <label className={`text-base font-normal ${isFirst ? "" : "mt-2.5"} mb-1.5 text-gray-900`} htmlFor={name}>{label}</label>
       <input
         id={name}
         className="w-full box-border font-normal bg-white text-gray-900 border border-gray-300 rounded-lg h-11 px-3.5 text-base mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-brand-800 placeholder:text-gray-400"
@@ -45,14 +45,14 @@ function Form() {
   }
 
   return (
-    <div className="flex-1 min-w-[300px] p-10 md:p-12 flex flex-col justify-center">
+    <div className="flex-1 min-w-[300px] py-12 px-10 flex flex-col justify-center">
       <form className="flex flex-col mt-6" onSubmit={handleSubmit(onSubmit)}>
         <h2 className="font-semibold mb-6 text-2xl text-gray-900">
           { subTitle }
         </h2>
         {
-          fields.map((field) => (
-            <Input key={field.name} {...field} register={ register } errors={errors} />
+          fields.map((field, i) => (
+            <Input key={field.name} {...field} isFirst={i === 0} register={ register } errors={errors} />
           ))
         }
         <button

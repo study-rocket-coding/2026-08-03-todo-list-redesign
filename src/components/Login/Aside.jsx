@@ -2,7 +2,7 @@ function Aside({ variant = "login" }) {
   const isLogin = variant === "login";
 
   return (
-    <div className="flex-1 min-w-[280px] bg-brand-800 text-white p-10 md:p-12 flex flex-col justify-center gap-7">
+    <div className="flex-1 min-w-[280px] bg-brand-800 text-white py-12 px-10 flex flex-col justify-center gap-7">
       <div className="flex items-center gap-3">
         <div className="w-10 h-10 rounded-lg bg-white text-brand-800 flex items-center justify-center text-display font-bold">
           ✓
