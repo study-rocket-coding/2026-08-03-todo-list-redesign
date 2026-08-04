@@ -8,14 +8,14 @@ const Input = ({ label, name, register, required, rules = {}, errors, ...props }
   const fieldError = errors[name];
   return (
     <>
-      <label className="text-sm font-bold mt-4 mb-1" htmlFor={name}>{label}</label>
-      <input 
+      <label className="text-base font-normal mt-2.5 mb-1.5 text-gray-900" htmlFor={name}>{label}</label>
+      <input
         id={name}
-        className="font-normal bg-white rounded-[10px] w-[304px] px-4 py-3 my-1 placeholder:text-[#9F9A91]"
+        className="w-full box-border font-normal bg-white text-gray-900 border border-gray-300 rounded-lg h-11 px-3.5 text-base mb-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-gray-400"
         {...props}
         {...register(name, { required, ...rules })}/>
       {fieldError && (
-        <p className="text-red-600 text-sm mt-1">{ fieldError.message }</p>
+        <p className="text-red-600 text-sm mt-0 mb-2">{ fieldError.message }</p>
       )}
     </>
   )
@@ -28,11 +28,11 @@ function Form() {
   const {
     register,
     formState: { errors },
-    handleSubmit 
+    handleSubmit
   } = useForm();
 
   const onSubmit = async (data) => {
-    setErrorLog(''); 
+    setErrorLog('');
     try {
       await signUp(data.email, data.password, data.name);
       alert('恭喜成功註冊，歡迎加入');
@@ -45,9 +45,9 @@ function Form() {
   }
 
   return (
-    <div>
-      <form className="flex flex-col ml-0 md:ml-[100px]" onSubmit={handleSubmit(onSubmit)}>
-        <h2 className="font-bold mb-6 text-xl text-center md:text-2xl md:text-left">
+    <div className="flex-1 min-w-[300px] p-10 md:p-12 flex flex-col justify-center">
+      <form className="flex flex-col mt-6" onSubmit={handleSubmit(onSubmit)}>
+        <h2 className="font-bold mb-6 text-2xl text-gray-900">
           { subTitle }
         </h2>
         {
@@ -57,16 +57,16 @@ function Form() {
         }
         <button
           type="submit"
-          className="w-32 h-12 rounded-[10px] bg-[#333] text-white self-center my-6 font-bold cursor-pointer text-center text-base"
+          className="h-[50px] rounded-full bg-emerald-600 hover:bg-emerald-700 text-white border-none self-center my-5 font-bold cursor-pointer text-center text-base px-10 transition-colors"
         >
           註冊帳號
         </button>
-        { errorLog && 
-          <p className="text-red-700 text-center mb-3"> { errorLog } </p>
+        { errorLog &&
+          <p className="text-red-600 text-center mb-3 text-sm"> { errorLog } </p>
         }
         <Link
           to="/"
-          className="block text-[#333] font-bold no-underline text-center"
+          className="block text-gray-900 font-bold no-underline text-center text-sm hover:text-emerald-700 transition-colors"
         >
           登入
         </Link>
