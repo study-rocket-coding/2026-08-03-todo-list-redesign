@@ -14,7 +14,7 @@ function Nav() {
         <div className="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-base font-bold">
           ✓
         </div>
-        <span className="font-bold tracking-wider text-sm text-emerald-700">ONLINE TODO LIST</span>
+        <h1 className="font-bold tracking-wider text-sm text-emerald-700 m-0">ONLINE TODO LIST</h1>
       </div>
       <ul className="flex items-center gap-5 text-sm list-none m-0 p-0">
         <li className="text-gray-500">{ nickName } 的待辦清單</li>
