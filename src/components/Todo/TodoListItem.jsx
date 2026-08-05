@@ -13,9 +13,9 @@ function TodoListItem({ id, status, content, onDelete, onToggle, onEdit }) {
   }
 
   return (
-    <li data-id={id} className="flex items-center gap-3.5 py-3.5 px-2 border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
+    <li data-id={id} className="flex items-center gap-3.5 py-3.5 px-2 border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors">
       <input
-        className="w-5 h-5 flex-shrink-0 accent-emerald-600 cursor-pointer"
+        className="w-5 h-5 flex-shrink-0 accent-brand-800 cursor-pointer"
         type="checkbox"
         checked={status}
         onChange={() => onToggle(id) }
@@ -25,12 +25,14 @@ function TodoListItem({ id, status, content, onDelete, onToggle, onEdit }) {
         : <DisplayTodo content={content} completed={status} />
       }
       <button
+        type="button"
         onClick={() => setIsEditing(!isEditing)}
-        className="text-[13px] font-normal text-gray-600 bg-transparent border border-gray-300 rounded-lg py-1.5 px-2.5 cursor-pointer whitespace-nowrap flex-shrink-0 hover:bg-emerald-50 hover:text-emerald-700 hover:border-emerald-300 transition-colors"
+        className="text-caption font-normal text-gray-600 bg-transparent border border-gray-300 rounded-lg py-1.5 px-2.5 cursor-pointer whitespace-nowrap flex-shrink-0 hover:bg-brand-100 hover:text-brand-800 hover:border-brand-800 transition-colors"
       >
         編輯
       </button>
       <button
+        type="button"
         onClick={() => onDelete(id)}
         aria-label="刪除"
         className="w-[26px] h-[26px] flex-shrink-0 flex items-center justify-center rounded-lg border-none bg-transparent text-gray-400 text-lg leading-none cursor-pointer hover:bg-red-50 hover:text-red-600 transition-colors"
