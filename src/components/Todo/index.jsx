@@ -53,7 +53,7 @@ function Todolist () {
           <div className="bg-brand-100 rounded-card px-card-x py-card-y">
             <div className="flex justify-between items-center">
               <span className="font-bold text-subtitle text-brand-800">{ motivationTitle }</span>
-              <span className="font-mono font-semibold text-label text-brand-800">{ completedCount }/{ total }</span>
+              <span className="font-brand-mono font-semibold text-label text-brand-800">{ completedCount }/{ total }</span>
             </div>
             <div className="h-2 rounded-pill bg-brand-300 mt-3 overflow-hidden">
               <div
