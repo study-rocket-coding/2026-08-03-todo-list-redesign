@@ -22,7 +22,7 @@ function AddTodoForm ({ onAdd, isAdding }) {
       <label htmlFor="newTodoContent" className="sr-only">新增待辦事項</label>
       <input
         id="newTodoContent"
-        className="flex-1 h-12 rounded-lg border border-gray-300 px-4 text-base bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-gray-400"
+        className="flex-1 h-12 rounded-lg border border-gray-200 px-4 text-base bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-brand-800 placeholder:text-gray-400"
         type="text"
         placeholder="請輸入待辦事項"
         { ...register("content") }
@@ -30,7 +30,7 @@ function AddTodoForm ({ onAdd, isAdding }) {
       <button
         type="submit"
         disabled={ isAdding || !content?.trim() }
-        className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-2xl font-normal leading-none cursor-pointer transition-colors disabled:opacity-45 disabled:cursor-not-allowed disabled:hover:bg-emerald-600"
+        className="w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-lg bg-brand-800 hover:bg-brand-900 text-white text-2xl font-normal leading-none cursor-pointer transition-colors disabled:opacity-45 disabled:cursor-not-allowed disabled:hover:bg-brand-800"
       >
         +
       </button>

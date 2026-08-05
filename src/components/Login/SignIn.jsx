@@ -4,12 +4,12 @@ import { Link, useNavigate } from 'react-router'
 import { signIn } from '../../apis'
 import { fields, subTitle } from "./data"
 
-const SignInInput = ({ label, name, register, required, rules = {}, errors, ...props }) => (
+const SignInInput = ({ label, name, register, required, rules = {}, errors, isFirst, ...props }) => (
   <>
-    <label className="text-base font-normal mt-2.5 mb-1.5 text-gray-900" htmlFor={name}>{label}</label>
+    <label className={`text-base font-normal ${isFirst ? "" : "mt-2.5"} mb-1.5 text-gray-900`} htmlFor={name}>{label}</label>
     <input
       id={name}
-      className="w-full box-border font-normal bg-white text-gray-900 border border-gray-300 rounded-lg h-11 px-3.5 text-base mb-1.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 placeholder:text-gray-400"
+      className="w-full box-border font-normal bg-white text-gray-900 border border-gray-200 rounded-lg h-11 px-3.5 text-base mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-brand-800 placeholder:text-gray-400"
       {...props}
       {...register(name, { required, ...rules })}/>
     {errors[name] && (
@@ -42,16 +42,16 @@ function SignIn () {
   }
 
   return (
-    <div className="flex-1 min-w-[300px] p-10 md:p-12 flex flex-col justify-center">
+    <div className="flex-1 min-w-[300px] py-12 px-10 flex flex-col justify-center">
       <form className="flex flex-col mt-6" onSubmit={ handleSubmit(onSubmit) }>
-        <h1 className="font-bold mb-6 text-2xl text-gray-900">
+        <h1 className="font-semibold mb-6 text-2xl text-gray-900">
           { subTitle }
         </h1>
         {
-          fields.map((field) => <SignInInput key={field.name} {...field} register={ register } errors={errors} />)
+          fields.map((field, i) => <SignInInput key={field.name} {...field} isFirst={i === 0} register={ register } errors={errors} />)
         }
         <button
-          className="h-[50px] rounded-full bg-emerald-600 hover:bg-emerald-700 text-white border-none self-center my-5 font-bold cursor-pointer text-center text-base px-10 transition-colors"
+          className="h-[50px] rounded-full bg-brand-800 hover:bg-brand-900 text-white border-none self-center my-5 font-bold cursor-pointer text-center text-base px-10 transition-colors"
           type="submit"
         >
           登入
@@ -61,7 +61,7 @@ function SignIn () {
         }
         <Link
           to='/register'
-          className="block text-gray-900 font-bold no-underline text-center text-sm hover:text-emerald-700 transition-colors"
+          className="block text-gray-900 font-bold no-underline text-center text-sm hover:text-brand-900 transition-colors"
         >
           註冊帳號
         </Link>
