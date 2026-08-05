@@ -50,14 +50,14 @@ function Todolist () {
       <div className="max-w-[640px] mx-auto px-5 py-7 pb-16 flex flex-col gap-section-gap">
 
         { total > 0 && (
-          <div className="bg-brand-100 rounded-2xl px-card-x py-card-y">
+          <div className="bg-brand-100 rounded-card px-card-x py-card-y">
             <div className="flex justify-between items-center">
               <span className="font-bold text-subtitle text-brand-800">{ motivationTitle }</span>
-              <span className="font-mono font-semibold text-sm text-brand-800">{ completedCount }/{ total }</span>
+              <span className="font-mono font-semibold text-label text-brand-800">{ completedCount }/{ total }</span>
             </div>
-            <div className="h-2 rounded-full bg-brand-300 mt-3 overflow-hidden">
+            <div className="h-2 rounded-pill bg-brand-300 mt-3 overflow-hidden">
               <div
-                className="h-full rounded-full bg-brand-800 transition-all duration-300 ease-out"
+                className="h-full rounded-pill bg-brand-800 transition-all duration-300 ease-out"
                 style={{ width: `${pct}%` }}
               />
             </div>
@@ -67,7 +67,7 @@ function Todolist () {
 
         <AddTodoForm onAdd={ addTodo } isAdding={ isAdding }/>
 
-        <div className="bg-white rounded-2xl shadow-[0_2px_14px_0_rgba(0,0,0,0.07)] overflow-hidden">
+        <div className="bg-white rounded-card shadow-card overflow-hidden">
           <div className="flex">
             {
               filterTabs.map((filterTab) => (
@@ -83,16 +83,16 @@ function Todolist () {
 
             { isLoading && (
               <div className="flex flex-col gap-2.5 mb-1">
-                <div className="h-11 rounded-lg bg-gray-100 animate-pulse" />
-                <div className="h-11 rounded-lg bg-gray-100 animate-pulse" />
-                <div className="h-11 rounded-lg bg-gray-100 animate-pulse" />
+                <div className="h-11 rounded-control bg-gray-100 animate-pulse" />
+                <div className="h-11 rounded-control bg-gray-100 animate-pulse" />
+                <div className="h-11 rounded-control bg-gray-100 animate-pulse" />
               </div>
             )}
 
             { errorLog.length > 0 && (
               <div className="flex flex-col gap-2 mb-3.5">
                 { errorLog.map((msg, i) => (
-                  <div key={i} className="flex items-start gap-2 bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm">
+                  <div key={i} className="flex items-start gap-2 bg-red-50 border border-red-200 text-red-700 rounded-control px-4 py-3 text-label">
                     <span className="font-bold">!</span>
                     <span>{ msg }</span>
                   </div>

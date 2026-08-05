@@ -29,7 +29,7 @@ function TodoListItem({ id, status, content, onDelete, onToggle, onEdit }) {
       <button
         type="button"
         onClick={() => setIsEditing(!isEditing)}
-        className="text-caption font-normal text-gray-600 bg-transparent border border-gray-300 rounded-lg py-1.5 px-2.5 cursor-pointer whitespace-nowrap flex-shrink-0 hover:bg-brand-100 hover:text-brand-800 hover:border-brand-800 transition-colors"
+        className="text-caption font-normal text-gray-600 bg-transparent border border-gray-300 rounded-control py-1.5 px-2.5 cursor-pointer whitespace-nowrap flex-shrink-0 hover:bg-brand-100 hover:text-brand-800 hover:border-brand-800 transition-colors"
       >
         編輯
       </button>
@@ -37,7 +37,7 @@ function TodoListItem({ id, status, content, onDelete, onToggle, onEdit }) {
         type="button"
         onClick={() => onDelete(id)}
         aria-label="刪除"
-        className="w-[26px] h-[26px] flex-shrink-0 flex items-center justify-center rounded-lg border-none bg-transparent text-gray-400 text-lg leading-none cursor-pointer hover:bg-red-50 hover:text-red-600 transition-colors"
+        className="w-[26px] h-[26px] flex-shrink-0 flex items-center justify-center rounded-control border-none bg-transparent text-gray-400 text-lg leading-none cursor-pointer hover:bg-red-50 hover:text-red-600 transition-colors"
       >
         ×
       </button>

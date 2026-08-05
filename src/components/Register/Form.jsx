@@ -8,14 +8,14 @@ const Input = ({ label, name, register, required, rules = {}, errors, isFirst, .
   const fieldError = errors[name];
   return (
     <>
-      <label className={`text-base font-normal ${isFirst ? "" : "mt-2.5"} mb-1.5 text-gray-900`} htmlFor={name}>{label}</label>
+      <label className={`text-body font-normal ${isFirst ? "" : "mt-2.5"} mb-1.5 text-gray-900`} htmlFor={name}>{label}</label>
       <input
         id={name}
-        className="w-full box-border font-normal bg-white text-gray-900 border border-gray-200 rounded-lg h-11 px-3.5 text-base mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-brand-800 placeholder:text-gray-400"
+        className="w-full box-border font-normal bg-white text-gray-900 border border-gray-200 rounded-control h-11 px-3.5 text-body mb-1.5 focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-brand-800 placeholder:text-gray-400"
         {...props}
         {...register(name, { required, ...rules })}/>
       {fieldError && (
-        <p className="text-red-600 text-sm mt-0 mb-2">{ fieldError.message }</p>
+        <p className="text-red-600 text-label mt-0 mb-2">{ fieldError.message }</p>
       )}
     </>
   )
@@ -45,9 +45,9 @@ function Form() {
   }
 
   return (
-    <div className="flex-1 min-w-[300px] py-12 px-10 flex flex-col justify-center">
+    <div className="flex-1 min-w-form-min py-12 px-10 flex flex-col justify-center">
       <form className="flex flex-col mt-6" onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="font-semibold mb-6 text-2xl text-gray-900">
+        <h1 className="font-semibold mb-6 text-heading text-gray-900">
           { subTitle }
         </h1>
         {
@@ -57,16 +57,16 @@ function Form() {
         }
         <button
           type="submit"
-          className="h-[50px] rounded-full bg-brand-800 hover:bg-brand-900 text-white border-none self-center my-5 font-bold cursor-pointer text-center text-base px-10 transition-colors"
+          className="h-control-h rounded-pill bg-brand-800 hover:bg-brand-900 text-white border-none self-center my-5 font-bold cursor-pointer text-center text-body px-10 transition-colors"
         >
           註冊帳號
         </button>
         { errorLog &&
-          <p className="text-red-600 text-center mb-3 text-sm"> { errorLog } </p>
+          <p className="text-red-600 text-center mb-3 text-label"> { errorLog } </p>
         }
         <Link
           to="/"
-          className="block text-gray-900 font-bold no-underline text-center text-sm hover:text-brand-900 transition-colors"
+          className="block text-gray-900 font-bold no-underline text-center text-label hover:text-brand-900 transition-colors"
         >
           登入
         </Link>
