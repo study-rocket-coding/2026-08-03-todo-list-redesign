@@ -3,12 +3,12 @@ import SignIn from "./SignIn";
 
 function Login() {
   return (
-    <section id="loginPage" className="bg-[#FFD370]">
-      <div className="mx-auto h-screen flex flex-col items-center justify-start w-full px-[31px] py-12 sm:flex-row sm:justify-between sm:w-[800px] sm:px-8 sm:py-[87px]">
-        <Aside />
+    <main id="loginPage" className="min-h-screen flex items-center justify-center bg-brand-100 p-6">
+      <div className="flex flex-wrap w-full max-w-card-max bg-white rounded-card overflow-hidden shadow-xl">
+        <Aside variant="login" />
         <SignIn />
       </div>
-    </section>
+    </main>
   )
 }
 

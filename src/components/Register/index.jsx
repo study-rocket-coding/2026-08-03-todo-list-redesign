@@ -1,14 +1,14 @@
 import Aside from "../Login/Aside"
 import Form from "./Form"
 
-function Register () {  
+function Register () {
   return (
-    <section id="signUpPage" className="bg-[#FFD370]">
-      <div className="mx-auto h-screen flex flex-col justify-between items-center w-full px-[31px] py-12 md:flex-row md:w-[800px] md:px-8 md:py-[87px]">
-        <Aside />
+    <main id="signUpPage" className="min-h-screen flex items-center justify-center bg-brand-100 p-6">
+      <div className="flex flex-wrap w-full max-w-card-max bg-white rounded-card overflow-hidden shadow-xl">
+        <Aside variant="register" />
         <Form />
       </div>
-    </section>
+    </main>
   )
 }
 

@@ -9,21 +9,19 @@ function Nav() {
   }
 
   return (
-    <nav className="flex justify-between px-8 pt-6 mb-4 md:mb-0">
-      <h1>
-        <a
-          href="#"
-          className="block w-[243px] h-[39px] bg-[url(https://upload.cc/i1/2022/03/23/8vTzYG.png)] bg-no-repeat indent-[101%] overflow-hidden whitespace-nowrap"
-        >
-          ONLINE TODO LIST
-        </a>
-      </h1>
-      <ul className="flex text-base">
-        <li className="ml-0 text-[#333] hover:text-[#d87355] md:ml-6">{ nickName } 的待辦清單</li>
-        <li className="mt-[11px] md:mt-0">
+    <nav className="flex flex-wrap gap-3 justify-between items-center px-6 md:px-8 py-5 bg-white border-b border-gray-200">
+      <div className="flex items-center gap-2.5">
+        <div className="w-8 h-8 rounded-control bg-brand-800 text-white flex items-center justify-center text-body font-bold">
+          ✓
+        </div>
+        <h1 className="font-bold tracking-wider text-label text-brand-800 m-0">ONLINE TODO LIST</h1>
+      </div>
+      <ul className="flex items-center gap-5 text-label list-none m-0 p-0">
+        <li className="text-gray-500">{ nickName } 的待辦清單</li>
+        <li>
           <Link
             to="/"
-            className="ml-0 text-[#333] no-underline hover:text-[#d87355] md:ml-6"
+            className="font-bold text-gray-900 no-underline hover:text-brand-900 transition-colors"
             onClick={ () => handleLogOut() }
           >
             登出

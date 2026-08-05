@@ -56,6 +56,7 @@ export function useTodos() {
   return {
     todos: todos.data ?? [],
     isAdding: addTodoMutation.isPending,
+    isLoading: todos.isLoading,
     errorLog: errorLog,
     addTodo: addTodoMutation.mutate,
     removeTodo: removeTodoMutation.mutate,

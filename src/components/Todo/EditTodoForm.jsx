@@ -3,15 +3,17 @@ import { useForm } from "react-hook-form";
 function EditTodoForm ({ content, onSubmit }) {
   const {
     register,
-    formState: { errors },
-    handleSubmit 
+    handleSubmit
   } = useForm()
 
   return (
-    <form onSubmit={ handleSubmit(onSubmit) } >
+    <form onSubmit={ handleSubmit(onSubmit) } className="flex-1">
+      <label htmlFor="newContent" className="sr-only">編輯待辦事項內容</label>
       <input
-        className="border border-gray-400 rounded px-1 py-2" 
+        id="newContent"
+        className="w-full box-border border border-brand-800 rounded-control py-2 px-2.5 text-body leading-normal focus:outline-none"
         defaultValue={ content }
+        autoFocus
         { ...register("newContent") }
         onBlur={ handleSubmit(onSubmit) }/>
     </form>
