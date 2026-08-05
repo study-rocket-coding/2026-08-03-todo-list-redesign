@@ -43,3 +43,7 @@
   --radius-card: 1rem;         /* 16px - 大卡片（登入/註冊卡、進度卡、Todo 清單卡） */
   --radius-pill: 9999px;       /* pill - 主按鈕、進度條、打勾圖示 */
 }
+
+body {
+  font-family: var(--font-brand-sans);
+}
