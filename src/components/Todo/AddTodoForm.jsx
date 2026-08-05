@@ -19,7 +19,9 @@ function AddTodoForm ({ onAdd, isAdding }) {
     <form
       onSubmit={ handleSubmit(onSubmit) }
       className="flex gap-2.5">
+      <label htmlFor="newTodoContent" className="sr-only">新增待辦事項</label>
       <input
+        id="newTodoContent"
         className="flex-1 h-12 rounded-lg border border-gray-200 px-4 text-base bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-brand-800 placeholder:text-gray-400"
         type="text"
         placeholder="請輸入待辦事項"

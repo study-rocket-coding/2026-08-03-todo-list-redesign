@@ -14,7 +14,9 @@ function TodoListItem({ id, status, content, onDelete, onToggle, onEdit }) {
 
   return (
     <li data-id={id} className="flex items-center gap-3.5 py-3.5 px-2 border-b border-gray-200 last:border-b-0 hover:bg-gray-50 transition-colors">
+      <label htmlFor={`todo-${id}`} className="sr-only">{`將「${content}」標記為${status ? "未完成" : "已完成"}`}</label>
       <input
+        id={`todo-${id}`}
         className="w-5 h-5 flex-shrink-0 accent-brand-800 cursor-pointer"
         type="checkbox"
         checked={status}

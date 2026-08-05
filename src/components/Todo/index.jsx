@@ -45,7 +45,7 @@ function Todolist () {
   const showEmptyState = !isLoading && total === 0 && errorLog.length === 0;
 
   return (
-    <section id="todoListPage" className="min-h-screen bg-gray-50">
+    <main id="todoListPage" className="min-h-screen bg-gray-50">
       <Nav />
       <div className="max-w-[640px] mx-auto px-5 py-7 pb-16 flex flex-col gap-section-gap">
 
@@ -134,7 +134,7 @@ function Todolist () {
           </div>
         </div>
       </div>
-    </section>
+    </main>
   )
 };
 

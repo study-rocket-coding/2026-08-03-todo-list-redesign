@@ -44,9 +44,9 @@ function SignIn () {
   return (
     <div className="flex-1 min-w-[300px] py-12 px-10 flex flex-col justify-center">
       <form className="flex flex-col mt-6" onSubmit={ handleSubmit(onSubmit) }>
-        <h2 className="font-semibold mb-6 text-2xl text-gray-900">
+        <h1 className="font-semibold mb-6 text-2xl text-gray-900">
           { subTitle }
-        </h2>
+        </h1>
         {
           fields.map((field, i) => <SignInInput key={field.name} {...field} isFirst={i === 0} register={ register } errors={errors} />)
         }
